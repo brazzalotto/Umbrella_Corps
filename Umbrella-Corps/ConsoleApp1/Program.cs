@@ -101,36 +101,31 @@ namespace ConsoleApp1
 
             foreach (var lettre in listeBase)
             {
-                while (i != 4)
+                
+                
+
+                if (i == 4)
                 {
-                    i++;
-                    //nouvelle combinaison
-                    combinaison += lettre;
+                    if (combinaisons.ContainsKey(combinaison))
+                    {
+                        combinaisons[combinaison]++;
+                    }
+                    else
+                    {
+                        combinaisons.Add(combinaison, 1);
+                    }
+                    i = 0;
+                    combinaison = "";
+                    
                 }
-
-
-                if (combinaisons.ContainsKey(combinaison))
-                {
-                    combinaisons[combinaison]++;
-                }
-                else
-                {
-                    combinaisons.Add(combinaison, 1);
-                }
-
-            }
-
-            foreach (var combi in combinaisons)
-            {
-                Console.WriteLine(combi.Key + " - " + combi.Value);
-
+                combinaison += lettre;
+                i++;
             }
 
             foreach (KeyValuePair<string, int> items in combinaisons)
             {
                 Console.WriteLine("Key = {0}, Value = {1}", items.Key, items.Value);
             }
-
         }
     }
 }
