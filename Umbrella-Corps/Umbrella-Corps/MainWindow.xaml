@@ -3,8 +3,8 @@
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                       Title="UMBRELLA CORPS"
-                      Height="800"
-                      Width="1200">
+                      Height="400"
+                      Width="600">
 
     <Grid>
         <Button Content="Parcourir" HorizontalAlignment="Left" Margin="230,45,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.413,-0.111" Click="Button_Click"/>
@@ -14,7 +14,7 @@
             <ComboBoxItem Content="Mode 3" />
         </ComboBox>
         <Label Content="Mode de calcul" HorizontalAlignment="Left" Margin="320,20,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,46,0,0" Name="parcourir" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" TextChanged="TextBox_TextChanged"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,46,0,0" Name="parcourir" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="TextBox_TextChanged"/>
         <Button Content="GO" HorizontalAlignment="Left" Margin="462,45,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
         <TextBox HorizontalAlignment="Left" Margin="10,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="250" Width="572" Name="resultats"/>
     </Grid>
