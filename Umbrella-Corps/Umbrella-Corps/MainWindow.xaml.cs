@@ -15,14 +15,15 @@ namespace Umbrella_Corps
         }
 
         private async void btn_load_file(object sender, RoutedEventArgs e) {
-            int neuds = getNbNoeuds();
+            //int neuds = getNbNoeuds();
 
             var File = new Fichier();
-            var filepath = File.loadFileTxt();
+            //var filepath = File.loadFileTxt();
 
-            string results = File.cuttingFile(filepath, neuds);
+            //string results = File.cuttingFile(filepath, neuds);
 
-            text.Text = results;
+            text.Text = File.lineCount.ToString();
+            File.setListePaquets(3);
         }
 
         // Nombre de noeuds
