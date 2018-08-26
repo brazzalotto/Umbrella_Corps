@@ -1,6 +1,7 @@
 ﻿using MahApps.Metro.Controls;
 using System;
 using System.Windows;
+using Umbrella_Corps.Modeles;
 
 namespace Umbrella_Corps
 {
@@ -11,16 +12,24 @@ namespace Umbrella_Corps
     {
         public MainWindow() {
             InitializeComponent();
-            var nbHearts = getHeartsProcessor();
-
-
-            MessageBox.Show("Nombre de coeurs : "+ nbHearts + "");
         }
 
-        // Récupère de nombre de coeurs sur le processeur
-        public int getHeartsProcessor() {
-            var nbHearts = Environment.ProcessorCount;
-            return nbHearts;
+        private async void btn_load_file(object sender, RoutedEventArgs e) {
+            int neuds = getNbNoeuds();
+
+            var File = new Fichier();
+            var filepath = File.loadFileTxt();
+
+            string results = File.cuttingFile(filepath, neuds);
+
+            text.Text = results;
+        }
+
+        // Nombre de noeuds
+        private int getNbNoeuds()
+        {
+            int neuds = 10;
+            return neuds;
         }
     }
 }

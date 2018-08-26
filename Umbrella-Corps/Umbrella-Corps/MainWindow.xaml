@@ -4,7 +4,11 @@
                       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                       Title="UMBRELLA CORPS"
                       Height="800"
-                      Width="1200"> 
-    <Grid></Grid>
+                      Width="1200">
+    <Grid>
+        <Button Content="Parcourir..." HorizontalAlignment="Left" Margin="230,71,0,0" VerticalAlignment="Top" Width="75" Style="{StaticResource AccentedSquareButtonStyle}" Click="btn_load_file" Background="#CC0034E5"/>
+        <Label Content="Charger un fichier :" HorizontalAlignment="Left" Margin="63,71,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="509" Margin="230,184,0,0" TextWrapping="Wrap" Text="" Name="text" VerticalAlignment="Top" Width="777"/>
+    </Grid>
 
 </Controls:MetroWindow>
