@@ -1,6 +1,7 @@
 ﻿using MahApps.Metro.Controls;
 using System;
 using System.Windows;
+using Umbrella_Corps.ModelD;
 
 namespace Umbrella_Corps
 {
@@ -14,7 +15,9 @@ namespace Umbrella_Corps
             ZoneTexte.Clear();
             var nbHearts = getHeartsProcessor();
 
+            var k=new Server(8888,this);
 
+            
             //MessageBox.Show("Nombre de coeurs : "+ nbHearts + "");
         }
 
