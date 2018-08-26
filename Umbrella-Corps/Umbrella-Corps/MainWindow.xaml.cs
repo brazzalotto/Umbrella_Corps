@@ -11,16 +11,22 @@ namespace Umbrella_Corps
     {
         public MainWindow() {
             InitializeComponent();
+            ZoneTexte.Clear();
             var nbHearts = getHeartsProcessor();
 
 
-            MessageBox.Show("Nombre de coeurs : "+ nbHearts + "");
+            //MessageBox.Show("Nombre de coeurs : "+ nbHearts + "");
         }
 
         // Récupère de nombre de coeurs sur le processeur
         public int getHeartsProcessor() {
             var nbHearts = Environment.ProcessorCount;
             return nbHearts;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ZoneTexte.AppendText("thomas\n");
         }
     }
 }
