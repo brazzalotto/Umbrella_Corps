@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>119f134e-ecd4-4670-bf39-4c19539c5a06</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>PartageTCP</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AllowAllAssemblyVersionsDeserializationBinder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enum\StatusEnum.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\GenericRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\GenericResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\MessageBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\RequestMessageBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\ResponseMessageBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\TextMessageRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ResponseCallbackObject.cs" />
+  </ItemGroup>
+</Project>
