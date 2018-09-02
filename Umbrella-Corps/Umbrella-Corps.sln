@@ -7,6 +7,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orchestrateur", "Umbrella-C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Noeud", "Noeud\Noeud.csproj", "{BE0922B2-4D71-42BA-AA66-4938A4822559}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirilix.AdvancedTCP.Client", "..\..\..\..\Desktop\Sirilix.AdvancedTCP (2)\AdvancedTCP\Sirilix.AdvancedTCP.Client\Sirilix.AdvancedTCP.Client.csproj", "{EB7A50D5-FE68-4FEF-81F2-698BEFC6430E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirilix.AdvancedTCP.Client.UI", "..\..\..\..\Desktop\Sirilix.AdvancedTCP (2)\AdvancedTCP\Sirilix.AdvancedTCP.Client.UI\Sirilix.AdvancedTCP.Client.UI.csproj", "{1CDFE81B-0AB0-4F04-A444-6A7F6F5377D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirilix.AdvancedTCP.Server", "..\..\..\..\Desktop\Sirilix.AdvancedTCP (2)\AdvancedTCP\Sirilix.AdvancedTCP.Server\Sirilix.AdvancedTCP.Server.csproj", "{D4B75445-714D-4EFE-8360-A0D197F4B954}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirilix.AdvancedTCP.Shared", "..\..\..\..\Desktop\Sirilix.AdvancedTCP (2)\AdvancedTCP\Sirilix.AdvancedTCP.Shared\Sirilix.AdvancedTCP.Shared.csproj", "{3CD79316-211A-4B57-A6B4-00FA6091C29D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirilix.AdvancedTCP.Server.UI", "..\..\..\..\Desktop\Sirilix.AdvancedTCP (2)\AdvancedTCP\Sirilix.AdvancedTCP.Server.UI\Sirilix.AdvancedTCP.Server.UI.csproj", "{131DEDD0-8700-4FC3-85E2-48922DF34D68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +31,26 @@ Global
 		{BE0922B2-4D71-42BA-AA66-4938A4822559}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE0922B2-4D71-42BA-AA66-4938A4822559}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE0922B2-4D71-42BA-AA66-4938A4822559}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB7A50D5-FE68-4FEF-81F2-698BEFC6430E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB7A50D5-FE68-4FEF-81F2-698BEFC6430E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB7A50D5-FE68-4FEF-81F2-698BEFC6430E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB7A50D5-FE68-4FEF-81F2-698BEFC6430E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CDFE81B-0AB0-4F04-A444-6A7F6F5377D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CDFE81B-0AB0-4F04-A444-6A7F6F5377D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CDFE81B-0AB0-4F04-A444-6A7F6F5377D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CDFE81B-0AB0-4F04-A444-6A7F6F5377D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4B75445-714D-4EFE-8360-A0D197F4B954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4B75445-714D-4EFE-8360-A0D197F4B954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4B75445-714D-4EFE-8360-A0D197F4B954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4B75445-714D-4EFE-8360-A0D197F4B954}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CD79316-211A-4B57-A6B4-00FA6091C29D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CD79316-211A-4B57-A6B4-00FA6091C29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CD79316-211A-4B57-A6B4-00FA6091C29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CD79316-211A-4B57-A6B4-00FA6091C29D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{131DEDD0-8700-4FC3-85E2-48922DF34D68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{131DEDD0-8700-4FC3-85E2-48922DF34D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{131DEDD0-8700-4FC3-85E2-48922DF34D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{131DEDD0-8700-4FC3-85E2-48922DF34D68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
