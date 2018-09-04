@@ -10,12 +10,11 @@ namespace Umbrella_Corps.Modeles
 {
     class Fichier
     {
-        private  string filePath { get; set; }
+        public string filePath { get; set; }
         public int lineCount { get; set; }
         private List<Paquet> listePaquets { get; set; }
 
-    public Fichier()
-        {
+        public Fichier() {
             getFilePath();
             getTotalLine();
             listePaquets = new List<Paquet>();
@@ -30,10 +29,9 @@ namespace Umbrella_Corps.Modeles
 
             if (result == true)
             {
-                filePath=dlg.FileName;
+                filePath = dlg.FileName;
             }
         }
-
 
         // Retourne le nombre de lignes du fichier
         public void getTotalLine() {
@@ -118,8 +116,6 @@ namespace Umbrella_Corps.Modeles
             //file_Cuts.Add(file);
             return file_content;
         }
-
-
 
 
         // Récupère de nombre de coeurs sur le processeur

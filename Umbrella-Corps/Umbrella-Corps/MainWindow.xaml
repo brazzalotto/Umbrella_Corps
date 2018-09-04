@@ -5,10 +5,25 @@
                       Title="UMBRELLA CORPS"
                       Height="800"
                       Width="1200">
-    <Grid>
-        <Button Content="Parcourir..." HorizontalAlignment="Left" Margin="230,71,0,0" VerticalAlignment="Top" Width="75" Style="{StaticResource AccentedSquareButtonStyle}" Click="btn_load_file" Background="#CC0034E5"/>
-        <Label Content="Charger un fichier :" HorizontalAlignment="Left" Margin="63,71,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="509" Margin="230,184,0,0" TextWrapping="Wrap" Text="" Name="text" VerticalAlignment="Top" Width="777"/>
+    <Grid Margin="-1,0,1,0">
+        <Label Content="Traitement du fichier :" HorizontalAlignment="Left" Margin="92,293,0,0" VerticalAlignment="Top" Width="469" FontSize="14" Background="#FF950F0F" Foreground="White"/>
+        <Label Content="Affichage du génome :" HorizontalAlignment="Left" Margin="595,293,0,0" VerticalAlignment="Top" Width="519" FontSize="14" Background="#FF950F0F" Foreground="White"/>
+        <Label Content="Liste des clients connectés :" HorizontalAlignment="Left" Margin="92,527,0,0" VerticalAlignment="Top" Width="1022" FontSize="14" Background="#FF950F0F" Foreground="White"/>
+        <Label Content="Activité su serveur :" HorizontalAlignment="Left" Margin="92,16,0,0" VerticalAlignment="Top" Width="1022" FontSize="14" Background="#FF950F0F" Foreground="White"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="173" Stroke="Black" VerticalAlignment="Top" Width="469" Margin="92,335,0,0"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="173" Stroke="Black" VerticalAlignment="Top" Width="519" Margin="595,335,0,0"/>
+        <TextBlock x:Name="resultat" HorizontalAlignment="Left" Margin="625,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="136" Width="453" Background="#FFF3F3F3" TextDecorations="{x:Null}" LineHeight="7"/>
+        <Label Content="Charger un fichier :" HorizontalAlignment="Left" Margin="110,351,0,0" VerticalAlignment="Top" FontSize="14" Width="204"/>
+        <Button Content="Parcourir..." HorizontalAlignment="Left" Margin="459,351,0,0" VerticalAlignment="Top" Width="75" Style="{StaticResource AccentedSquareButtonStyle}" Click="btn_load_file" Background="#CC0034E5"/>
+        <Label Content="Traitement du fichier :" HorizontalAlignment="Left" Margin="110,423,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Controls:MetroProgressBar x:Name="pourcentage_traitement" HorizontalAlignment="Left" Height="24" Maximum="100" Margin="116,463,0,0" VerticalAlignment="Top" Width="323"/>
+        <Label x:Name="nb_pourcent_traitement" Content="" HorizontalAlignment="Left" Margin="469,457,0,0" VerticalAlignment="Top" Width="65" Height="30"/>
+        <DataGrid x:Name="clients_liste" HorizontalAlignment="Left" Height="168" Margin="92,566,0,0" VerticalAlignment="Top" Width="1022" />
+        <Rectangle x:Name="log_box" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="179" Margin="92,86,0,0" Stroke="Black" VerticalAlignment="Top" Width="1022"/>
+        <TextBlock x:Name="logs" HorizontalAlignment="Left" Margin="110,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="119" Width="968"/>
+        <CheckBox x:Name="show_activity" Click="show_activity_Checked" Content="Afficher les actitivées" HorizontalAlignment="Left" Margin="92,56,0,0" VerticalAlignment="Top" Width="256" />
+        <Label x:Name="log_hide" Content="" HorizontalAlignment="Left" Margin="110,91,0,0" VerticalAlignment="Top" Width="521"/>
+        <Label x:Name="file_path" Content="" HorizontalAlignment="Left" Margin="116,380,0,0" VerticalAlignment="Top" Width="323"/>
     </Grid>
 
 </Controls:MetroWindow>
