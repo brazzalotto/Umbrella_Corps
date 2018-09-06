@@ -10,6 +10,8 @@ using System.Security.Authentication;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Threading;
 using Umbrella_Corps;
 using Umbrella_Corps.ModelD;
 
@@ -85,7 +87,7 @@ public class Receiver
                 }
                 catch
                 {
-                    fenetre.ZoneTexte.AppendText("CLient deco");
+                    //fenetre.ZoneTexte.AppendText("CLient deco");
                     Disconnect();
                 }
                 finally
@@ -114,7 +116,7 @@ public class Receiver
                 }
                 catch (Exception e)
                 {
-                    Exception ex = new Exception("Unknown message recieved. Could not deserialize the stream.", e);
+                    Exception ex = new Exception("Unknown message received. Could not deserialize the stream.", e);
                     Debug.WriteLine(ex.Message);
                 }
             }
@@ -126,7 +128,11 @@ public class Receiver
 
     private void OnMessageReceived(AdnLinePackage msg)
     {
-        Server.fenetre.ZoneTexte.AppendText(" code "+ msg.code);
+        Application.Current.Dispatcher.BeginInvoke((Action)(() =>
+        {
+            fenetre.ZoneTexte.AppendText("\n code  " + msg.code);
+        }), DispatcherPriority.Normal, null);
+        //Server.fenetre.ZoneTexte.AppendText(" code "+ msg.code);
     }
 }
 
