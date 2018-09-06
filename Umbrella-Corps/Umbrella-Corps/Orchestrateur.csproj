@@ -81,6 +81,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ModelD\Receiver.cs" />
     <Compile Include="ModelD\Server.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -143,5 +144,6 @@
   <ItemGroup>
     <Resource Include="logo_500tr.ico" />
   </ItemGroup>
+  <Import Project="..\PartageTCP\PartageTCP.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

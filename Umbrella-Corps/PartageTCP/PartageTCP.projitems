@@ -11,6 +11,8 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AllowAllAssemblyVersionsDeserializationBinder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\StatusEnum.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\AdnLine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\AdnLinePackage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\GenericRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\GenericResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\MessageBase.cs" />

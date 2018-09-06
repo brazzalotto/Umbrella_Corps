@@ -9,5 +9,8 @@ using System.Threading.Tasks;
     public class TextMessageRequest : RequestMessageBase
     {
         public String Message { get; set; }
-    }
+
+        public int Kilos { get; set; }
+
+}
 

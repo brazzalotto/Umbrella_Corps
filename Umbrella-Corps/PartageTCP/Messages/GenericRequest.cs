@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 [Serializable]
 public class GenericRequest : RequestMessageBase
 {
-    internal MemoryStream InnerMessage { get; set; }
+    internal new MemoryStream InnerMessage { get; set; }
 
     public GenericRequest()
     {

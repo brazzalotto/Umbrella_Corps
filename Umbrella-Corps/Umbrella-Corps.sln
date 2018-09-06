@@ -21,6 +21,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PartageTCP", "PartageTCP\Pa
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		PartageTCP\PartageTCP.projitems*{10c99e67-cb57-40e0-b021-f4e4dda300c0}*SharedItemsImports = 4
 		PartageTCP\PartageTCP.projitems*{119f134e-ecd4-4670-bf39-4c19539c5a06}*SharedItemsImports = 13
 		PartageTCP\PartageTCP.projitems*{be0922b2-4d71-42ba-aa66-4938a4822559}*SharedItemsImports = 4
 	EndGlobalSection

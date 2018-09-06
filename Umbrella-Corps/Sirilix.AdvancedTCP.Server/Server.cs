@@ -36,11 +36,11 @@ namespace Sirilix.AdvancedTCP.Server
         /// <summary>
         /// Raises when a new client is connected.
         /// </summary>
-        public event Delegates.ClientBasicDelegate ClientConnected;
+        public event Action<Receiver> ClientConnected;
         /// <summary>
         /// Raises when a new client is validated.
         /// </summary>
-        public event Delegates.ClientBasicDelegate ClientValidated;
+        public event Action<Receiver> ClientValidated;
         #endregion
 
         #region Constructors
@@ -86,7 +86,7 @@ namespace Sirilix.AdvancedTCP.Server
                 Debug.WriteLine("Server Stoped!");
             }
         }
-        
+
         #endregion
 
         #region Incoming Connections Methods

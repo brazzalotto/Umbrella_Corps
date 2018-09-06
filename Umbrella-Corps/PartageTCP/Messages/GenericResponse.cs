@@ -10,7 +10,7 @@ using System.Threading.Tasks;
     [Serializable]
     public class GenericResponse : ResponseMessageBase
     {
-        internal MemoryStream InnerMessage { get; set; }
+        internal new MemoryStream InnerMessage { get; set; }
 
         public GenericResponse(GenericRequest request)
             : base(request)
