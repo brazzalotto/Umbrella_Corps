@@ -12,7 +12,7 @@ namespace Umbrella_Corps.Modeles
     {
         public string filePath { get; set; }
         public int lineCount { get; set; }
-        private List<Paquet> listePaquets { get; set; }
+        public List<Paquet> listePaquets { get; set; }
 
         public Fichier() {
             getFilePath();
