@@ -1,6 +1,8 @@
 ﻿using MahApps.Metro.Controls;
+using PartageTCP.Messages;
 using System;
 using System.Windows;
+using System.Windows.Threading;
 using Umbrella_Corps.ModelD;
 
 namespace Umbrella_Corps
@@ -16,8 +18,8 @@ namespace Umbrella_Corps
             ZoneTexte.Clear();
             var nbHearts = getHeartsProcessor();
 
-            var k=new Server(8888,this);
-            k.Start();
+            Server = new Server(8888,this);
+            Server.Start();
             
             //MessageBox.Show("Nombre de coeurs : "+ nbHearts + "");
         }
@@ -30,13 +32,30 @@ namespace Umbrella_Corps
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var item in Server.Receivers)
+            AdnLine adn = new AdnLine();
+            adn.chromosome = "jekjhek";
+            adn.genotype = "lkjhjh";
+            adn.position = "mkkjlkjk";
+            adn.rsId = "mkokjklj";
+
+            AdnLine adn2 = new AdnLine();
+            adn2.chromosome = "jekjhek";
+            adn2.genotype = "lkjhjh";
+            adn2.position = "mkkjlkjk";
+            adn2.rsId = "mkokjklj";
+
+            AdnLinePackage lignepaquet = new AdnLinePackage();
+            GenericAdnList tamere = new GenericAdnList();
+            tamere.Add(adn);
+            tamere.Add(adn2);
+            lignepaquet.adnList = tamere;
+            lignepaquet.code = 2;
+
+            Application.Current.Dispatcher.BeginInvoke((Action)(() =>
             {
-                foreach (var item1 in item.AdnListMessage)
-                {
-                    ZoneTexte.AppendText(""+item1.code);
-                }
-            }
+                Server.Receivers[0].SendMessage(lignepaquet);
+            }), DispatcherPriority.Normal, null);
+           
         }
     }
 }

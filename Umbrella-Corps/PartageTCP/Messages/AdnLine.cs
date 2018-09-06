@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PartageTCP.Messages
 {
-    [Serializable]
+    [System.Serializable]
     public class AdnLine
     {
         public string rsId { get; set; }
@@ -13,6 +13,8 @@ namespace PartageTCP.Messages
 
         public string position { get; set; }
 
-        public string genotype { get; set; }
+        public string genotype { get; set;}
+        
+        public AdnLine() { }
     }
 }

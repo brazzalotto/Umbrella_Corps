@@ -97,10 +97,6 @@
     <None Include="Resources\SmallLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sirilix.AdvancedTCP.Client\Sirilix.AdvancedTCP.Client.csproj">
-      <Project>{eb7a50d5-fe68-4fef-81f2-698befc6430e}</Project>
-      <Name>Sirilix.AdvancedTCP.Client</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Sirilix.AdvancedTCP.Shared\Sirilix.AdvancedTCP.Shared.csproj">
       <Project>{3cd79316-211a-4b57-a6b4-00fa6091c29d}</Project>
       <Name>Sirilix.AdvancedTCP.Shared</Name>

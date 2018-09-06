@@ -20,21 +20,21 @@ public class Receiver
     public Thread receivingThread;
     public Thread sendingThread;
 
-    public MainWindow fenetre { get; private set; }
-
     public Guid ID { get; set; }
     public Server Server { get; set; }
     public TcpClient Client { get; set; }
     public StatusEnum Status { get; set; }
-    //public List<MessageBase> MessageQueue { get; private set; }
+    
     public List<AdnLinePackage> AdnListMessage { get; private set; }
+    public List<Result> ResultList { get;  set; }
+    
     public long TotalBytesUsage { get; set; }
-
 
     public Receiver()
     {
         ID = Guid.NewGuid();
         AdnListMessage = new List<AdnLinePackage>();
+        ResultList = new List<Result>();
         Status = StatusEnum.Connected;
     }
 
@@ -111,7 +111,8 @@ public class Receiver
                 {
                     BinaryFormatter f = new BinaryFormatter();
                     f.Binder = new AllowAllAssemblyVersionsDeserializationBinder();
-                    AdnLinePackage msg = f.Deserialize(Client.GetStream()) as AdnLinePackage;
+                    var b = f.Binder;
+                    Result msg = f.Deserialize(Client.GetStream()) as Result;
                     OnMessageReceived(msg);
                 }
                 catch (Exception e)
@@ -122,17 +123,20 @@ public class Receiver
             }
             Thread.Sleep(30);
         }
-
     }
         
-
-    private void OnMessageReceived(AdnLinePackage msg)
+    private void OnMessageReceived(Result msg)
     {
+        
         Application.Current.Dispatcher.BeginInvoke((Action)(() =>
         {
-            fenetre.ZoneTexte.AppendText("\n code  " + msg.code);
+            Server.fenetre.ZoneTexte.AppendText("\n code  " + msg.cNumber);
         }), DispatcherPriority.Normal, null);
-        //Server.fenetre.ZoneTexte.AppendText(" code "+ msg.code);
+        if (msg !=null)
+        {
+            this.ResultList.Add((Result)msg);
+        }
+      
     }
 }
 

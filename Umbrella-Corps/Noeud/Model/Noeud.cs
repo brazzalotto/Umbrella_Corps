@@ -20,13 +20,12 @@ class Noeud
 
     public List<AdnLinePackage> AdnListMessage { get; private set; }
 
-    public event Action<Noeud> ClientDisconnected;
+    public Result Result { get;  set; }
 
     public Noeud()
     {
-        //callBacks = new List<ResponseCallbackObject>();
-        //MessageQueue = new List<MessageBase>();
         AdnListMessage = new List<AdnLinePackage>();
+        Result = null;
         Status = StatusEnum.Disconnected;
     }
 
@@ -69,15 +68,16 @@ class Noeud
     {
         while (Status != StatusEnum.Disconnected)
         {
-            if (AdnListMessage.Count > 0)
+            if (Result != null)
             {
-                AdnLinePackage al = AdnListMessage[0];
+                //AdnLinePackage al = AdnListMessage[0];
                 
                 try
                 {
                     BinaryFormatter f = new BinaryFormatter();
                     f.Binder = new AllowAllAssemblyVersionsDeserializationBinder();
-                    f.Serialize(TcpClient.GetStream(), al);
+                    f.Serialize(TcpClient.GetStream(), Result);
+                    Result = null;
                     Console.WriteLine("Message envoyé");
                 }
                 catch
@@ -85,16 +85,16 @@ class Noeud
                     Disconnect();
                 }
 
-                AdnListMessage.Remove(al);
+                //AdnListMessage.Remove(al);
             }
             Thread.Sleep(30);
         }
     }
 
-    public void SendMessage(AdnLinePackage message)
-    {
-        AdnListMessage.Add(message);
-    }
+    //public void SendMessage(AdnLinePackage message)
+    //{
+    //    AdnListMessage.Add(message);
+   // }
 
     private void ReceivingMethod()
     {
@@ -104,16 +104,14 @@ class Noeud
             {
                 try
                 {
-                BinaryFormatter f = new BinaryFormatter();
-                f.Binder = new AllowAllAssemblyVersionsDeserializationBinder();
-                AdnLinePackage msg = f.Deserialize(TcpClient.GetStream()) as AdnLinePackage;
-                OnMessageReceived(msg);
+                    BinaryFormatter f = new BinaryFormatter();
+                    f.Binder = new AllowAllAssemblyVersionsDeserializationBinder();
+                    AdnLinePackage msg = f.Deserialize(TcpClient.GetStream()) as AdnLinePackage;
+                    OnMessageReceived(msg);
                 }
                catch (Exception e)
                 {
-                //    Exception ex = new Exception("Unknown message recieved. Could not deserialize the stream.", e);
-                //    OnClientError(this, ex);
-                //    Debug.WriteLine(ex.Message);
+                   Exception ex = new Exception("Unknown message recieved. Could not deserialize the stream.", e);
                 }
             }
 

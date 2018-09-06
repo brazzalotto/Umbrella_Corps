@@ -13,12 +13,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enum\StatusEnum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\AdnLine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\AdnLinePackage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messages\GenericRequest.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messages\GenericResponse.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messages\MessageBase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messages\RequestMessageBase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messages\ResponseMessageBase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messages\TextMessageRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\GenericAdnList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\Result.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ResponseCallbackObject.cs" />
   </ItemGroup>
 </Project>
