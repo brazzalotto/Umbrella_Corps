@@ -49,8 +49,9 @@ namespace Umbrella_Corps
             else {
                 log_box.Height = 40;
                 logs.Height = 0;
-                log_hide.Content = "La liste des activitées n'est pas afficher !";
+                log_hide.Content = "La liste des activités n'est pas afficher !";
             }
         }
+
     }
 }
