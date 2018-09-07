@@ -123,6 +123,31 @@ class Noeud
     {
         //Ici traitement du message selon le code
         Console.WriteLine("Code reçu {0}", msg.code);
+
+        int nbCoeur = getHeartsProcessor();
+
+        switch (msg.code)
+        {
+            case 1:
+                
+
+
+
+
+
+                break;
+            case 2:
+                break;
+            default:
+                break;
+        }
+    }
+
+    // Récupère de nombre de coeurs sur le processeur
+    public int getHeartsProcessor()
+    {
+        var nbHearts = Environment.ProcessorCount;
+        return nbHearts;
     }
 
 }

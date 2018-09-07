@@ -1,17 +1,21 @@
 ﻿using MahApps.Metro.Controls;
 using PartageTCP.Messages;
 using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Threading;
 using Umbrella_Corps.Modeles;
 
 namespace Umbrella_Corps
 {
+    
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        
+
         public Server Server;
         public MainWindow() {
             InitializeComponent();
@@ -21,53 +25,43 @@ namespace Umbrella_Corps
         }
 
         private async void btn_load_file(object sender, RoutedEventArgs e) {
-            //int noeuds = getNbNoeuds();
-            //var File = new Fichier();
-            //resultat.Text = File.lineCount.ToString();
-            //File.setListePaquets(noeuds);
-            //var paquets = File.listePaquets;
+            int noeuds = getNbNoeuds();
+            var File = new Fichier();
+            resultat.Text = File.lineCount.ToString();
+            File.setListePaquets(noeuds);
+            var paquets = File.listePaquets;
 
-            //pourcentage_traitement.IsIndeterminate = true;
-            //var max_pourcent = File.lineCount;
-            //pourcentage_traitement.Maximum = max_pourcent;
-            //pourcentage_traitement.Value = max_pourcent;
-            //nb_pourcent_traitement.Content = "100%";
+            pourcentage_traitement.IsIndeterminate = true;
+            var max_pourcent = File.lineCount;
+            pourcentage_traitement.Maximum = max_pourcent;
+            pourcentage_traitement.Value = max_pourcent;
+            nb_pourcent_traitement.Content = "100%";
 
-            //if(File.listePaquets.Count > 0) {
-            //    pourcentage_traitement.IsIndeterminate = false;
-            //}
+            if (File.listePaquets.Count > 0)
+            {
+                pourcentage_traitement.IsIndeterminate = false;
+            }
 
-            //// Affiche le chemin du fichier
-            //file_path.Content = File.filePath;
+            File.cuttingFile(File);
 
-            AdnLine adn = new AdnLine();
-            adn.chromosome = "jekjhek";
-            adn.genotype = "lkjhjh";
-            adn.position = "mkkjlkjk";
-            adn.rsId = "mkokjklj";
-            AdnLine adn2 = new AdnLine();
-            adn2.chromosome = "jekjhek";
-            adn2.genotype = "lkjhjh";
-            adn2.position = "mkkjlkjk";
-            adn2.rsId = "mkokjklj";
-            AdnLinePackage lignepaquet = new AdnLinePackage();
-            GenericAdnList tamere = new GenericAdnList();
-            tamere.Add(adn);
-            tamere.Add(adn2);
-            lignepaquet.adnList = tamere;
-            lignepaquet.code = 2;
+            // Affiche le chemin du fichier
+            file_path.Content = File.filePath;
 
             await Application.Current.Dispatcher.BeginInvoke((Action)(() =>
-             {
-                 Server.Receivers[0].SendMessage(lignepaquet);
-             }), DispatcherPriority.Normal, null);
+              {
+                  for (int i = 0; i < Server.Receivers.Count; i++)
+                  {
+                      Server.Receivers[i].SendMessage(File.ListPackageToSend[i]);
+                      Server.fenetre.logs.Text += ("Data send to node :  " + DateTime.Now.ToString("HH:mm:ss tt") + "\n");
+                  }
+              }), DispatcherPriority.Normal, null);
 
         }
 
         // Nombre de noeuds
         private int getNbNoeuds()
         {
-            int neuds = new Random().Next(1,5);
+            int neuds = Server.Receivers.Count;
             return neuds;
         }
 

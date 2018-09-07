@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Umbrella_Corps.Modeles
 {
-    class Paquet
+    public class Paquet
     {
-        private int numero { get; set; }
+        public int numero { get; set; }
 
-        private int ligneDebut { get; set; }
+        public int ligneDebut { get; set; }
 
-        private int ligneFin { get; set; }
+        public int ligneFin { get; set; }
 
-        private bool actif { get; set; }
+        public bool actif { get; set; }
 
         public Paquet(int num,int deb,int fin)
         {

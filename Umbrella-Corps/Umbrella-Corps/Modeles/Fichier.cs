@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PartageTCP.Messages;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,10 +15,13 @@ namespace Umbrella_Corps.Modeles
         public int lineCount { get; set; }
         public List<Paquet> listePaquets { get; set; }
 
+        public List<AdnLinePackage> ListPackageToSend = new List<AdnLinePackage>();
+
         public Fichier() {
             getFilePath();
             getTotalLine();
             listePaquets = new List<Paquet>();
+            ListPackageToSend = new List<AdnLinePackage>();
         }
 
         // Choix du fichier, retourne le chemin || message d'erreurz
@@ -69,7 +73,6 @@ namespace Umbrella_Corps.Modeles
                 ligneEnCours+= nbLigne;
                 indice++;
             }
-            var b = 0;
         }
 
         public static IEnumerable<int> DistributeInteger(int total, int divider)
@@ -94,35 +97,46 @@ namespace Umbrella_Corps.Modeles
         }
 
         // Découpe le fichier
-        public string cuttingFile(int neuds) {
+        public void cuttingFile(Fichier f) {
 
-            // Contenu du fichier
-            var file_content = File.ReadAllText(filePath);
-            var nb_cut = lineCount / neuds;
+            System.IO.StreamReader file = new System.IO.StreamReader(filePath);
 
+            //1ere ligne
+            file.ReadLine();
 
-            var list = new List<string>();
-            var position = 0;
-            for (int i=0; i< nb_cut; i++) {
-                for (int j = 0; j< lineCount; j++) {
-                    if (nb_cut < j)
-                    {
-                        //list.Add = file_content.Substring() file_content.ReadLine();
-                    }
-                    position++;
+            //for (int i = 0; i < p.ligneDebut; i++)
+            //{
+            //    if (true)
+            //    {
+
+            //    }
+            //    file.ReadLine();
+            //}
+
+            foreach (Paquet item in f.listePaquets)
+            {
+                AdnLinePackage dna = new AdnLinePackage();
+                GenericAdnList gen = new GenericAdnList();
+
+                for (int i = item.ligneDebut; i < item.ligneFin; i++)
+                {
+                    AdnLine aze = new AdnLine();
+                    var line = file.ReadLine();
+                    aze.rsId = line.Split('\t')[0];
+                    aze.chromosome = line.Split('\t')[1];
+                    aze.position = line.Split('\t')[2];
+                    aze.genotype = line.Split('\t')[3];
+
+                    gen.Add(aze);
                 }
+                dna.adnList = gen;
+                dna.code = 1;
+
+                ListPackageToSend.Add(dna);
             }
-
-            //file_Cuts.Add(file);
-            return file_content;
         }
 
 
-        // Récupère de nombre de coeurs sur le processeur
-        public int getHeartsProcessor()
-        {
-            var nbHearts = Environment.ProcessorCount;
-            return nbHearts;
-        }
+        
     }
 }
