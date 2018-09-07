@@ -105,6 +105,8 @@
   <ItemGroup>
     <Compile Include="Modeles\Fichier.cs" />
     <Compile Include="Modeles\Paquet.cs" />
+    <Compile Include="Modeles\Receiver.cs" />
+    <Compile Include="Modeles\Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -142,5 +144,6 @@
   <ItemGroup>
     <Resource Include="logo_500tr.ico" />
   </ItemGroup>
+  <Import Project="..\PartageTCP\PartageTCP.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

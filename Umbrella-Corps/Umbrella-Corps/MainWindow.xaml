@@ -9,7 +9,7 @@
         <Label Content="Traitement du fichier :" HorizontalAlignment="Left" Margin="92,293,0,0" VerticalAlignment="Top" Width="469" FontSize="14" Background="#FF950F0F" Foreground="White"/>
         <Label Content="Affichage du génome :" HorizontalAlignment="Left" Margin="595,293,0,0" VerticalAlignment="Top" Width="519" FontSize="14" Background="#FF950F0F" Foreground="White"/>
         <Label Content="Liste des clients connectés :" HorizontalAlignment="Left" Margin="92,527,0,0" VerticalAlignment="Top" Width="1022" FontSize="14" Background="#FF950F0F" Foreground="White"/>
-        <Label Content="Activité su serveur :" HorizontalAlignment="Left" Margin="92,16,0,0" VerticalAlignment="Top" Width="1022" FontSize="14" Background="#FF950F0F" Foreground="White"/>
+        <Label Content="Activité du serveur :" HorizontalAlignment="Left" Margin="92,16,0,0" VerticalAlignment="Top" Width="1022" FontSize="14" Background="#FF950F0F" Foreground="White"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="173" Stroke="Black" VerticalAlignment="Top" Width="469" Margin="92,335,0,0"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="173" Stroke="Black" VerticalAlignment="Top" Width="519" Margin="595,335,0,0"/>
         <TextBlock x:Name="resultat" HorizontalAlignment="Left" Margin="625,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="136" Width="453" Background="#FFF3F3F3" TextDecorations="{x:Null}" LineHeight="7"/>
