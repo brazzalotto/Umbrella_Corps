@@ -6,8 +6,9 @@
                       Height="800"
                       Width="1200">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="552,686,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <TextBox HorizontalAlignment="Left" Name="ZoneTexte" Height="619" Margin="48,36,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="1097"/>
+        <Button Content="Parcourir..." HorizontalAlignment="Left" Margin="230,71,0,0" VerticalAlignment="Top" Width="75" Style="{StaticResource AccentedSquareButtonStyle}" Click="btn_load_file" Background="#CC0034E5"/>
+        <Label Content="Charger un fichier :" HorizontalAlignment="Left" Margin="63,71,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="509" Margin="230,184,0,0" TextWrapping="Wrap" Text="" Name="text" VerticalAlignment="Top" Width="777"/>
     </Grid>
 
 </Controls:MetroWindow>

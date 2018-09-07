@@ -81,7 +81,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ModelD\Receiver.cs" />
+	 <Compile Include="ModelD\Receiver.cs" />
     <Compile Include="ModelD\Server.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -107,6 +107,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modeles\Fichier.cs" />
+    <Compile Include="Modeles\Paquet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
