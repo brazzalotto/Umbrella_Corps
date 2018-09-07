@@ -20,7 +20,10 @@
         <Label x:Name="nb_pourcent_traitement" Content="" HorizontalAlignment="Left" Margin="469,457,0,0" VerticalAlignment="Top" Width="65" Height="30"/>
         <DataGrid x:Name="clients_liste" HorizontalAlignment="Left" Height="168" Margin="92,566,0,0" VerticalAlignment="Top" Width="1022" />
         <Rectangle x:Name="log_box" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="179" Margin="92,86,0,0" Stroke="Black" VerticalAlignment="Top" Width="1022"/>
-        <TextBlock x:Name="logs" HorizontalAlignment="Left" Margin="110,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="119" Width="968"/>
+        
+        <TextBlock x:Name="logs" HorizontalAlignment="Left" Margin="110,107,0,0"  LineHeight="7" TextWrapping="Wrap" VerticalAlignment="Top" Height="158" Width="979"
+                       ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" />
+        
         <CheckBox x:Name="show_activity" Click="show_activity_Checked" Content="Afficher les activés" HorizontalAlignment="Left" Margin="92,56,0,0" VerticalAlignment="Top" Width="256" />
         <Label x:Name="log_hide" Content="" HorizontalAlignment="Left" Margin="110,91,0,0" VerticalAlignment="Top" Width="521"/>
         <Label x:Name="file_path" Content="" HorizontalAlignment="Left" Margin="116,380,0,0" VerticalAlignment="Top" Width="323"/>

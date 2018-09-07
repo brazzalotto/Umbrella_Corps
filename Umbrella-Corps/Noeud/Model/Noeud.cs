@@ -8,25 +8,28 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 
 
-class Noeud
+class Noeuds
 {
     private Thread receivingThread;
     private Thread sendingThread;
+
+    List<Result> res = new List<Result>();
 
     public TcpClient TcpClient { get; set; }
     public String Address { get; private set; }
     public int Port { get; private set; }
     public StatusEnum Status { get; private set; }
-
+    public List<Thread> lstThreads { get;  set; }
     public List<AdnLinePackage> AdnListMessage { get; private set; }
 
     public Result Result { get;  set; }
 
-    public Noeud()
+    public Noeuds()
     {
         AdnListMessage = new List<AdnLinePackage>();
         Result = null;
         Status = StatusEnum.Disconnected;
+        lstThreads = new List<Thread>();
     }
 
     public void Connect(String address, int port)
@@ -70,8 +73,6 @@ class Noeud
         {
             if (Result != null)
             {
-                //AdnLinePackage al = AdnListMessage[0];
-                
                 try
                 {
                     BinaryFormatter f = new BinaryFormatter();
@@ -84,17 +85,10 @@ class Noeud
                 {
                     Disconnect();
                 }
-
-                //AdnListMessage.Remove(al);
             }
             Thread.Sleep(30);
         }
     }
-
-    //public void SendMessage(AdnLinePackage message)
-    //{
-    //    AdnListMessage.Add(message);
-   // }
 
     private void ReceivingMethod()
     {
@@ -123,17 +117,38 @@ class Noeud
     {
         //Ici traitement du message selon le code
         Console.WriteLine("Code reçu {0}", msg.code);
-
+        AdnListMessage.Add(msg);
         int nbCoeur = getHeartsProcessor();
-
+        
         switch (msg.code)
         {
             case 1:
-                
+
+                int nbLig = AdnListMessage[0].adnList.Count;
+                int nombre = nbLig / nbCoeur;
 
 
+                for (int i = 0; i < nbCoeur - 1; i++)
+                {
+                    List<AdnLine> petiteListeAdn = msg.adnList.GetRange(i * nombre, nombre);
+                    CreateThreads(petiteListeAdn);
 
+                    //Result r = new Result();
+                    //res.Add(r);
 
+                    lstThreads[i].Start();
+                }
+
+                //lstThreads
+                foreach (Thread th in lstThreads)
+                {
+                    if (th.IsAlive) // Si le thread n'est pas déjà fini
+                    {
+                        th.Join(); // On attend que le thread soit terminé
+                    }
+                }
+
+                Reduce();
 
                 break;
             case 2:
@@ -141,7 +156,7 @@ class Noeud
             default:
                 break;
         }
-    }
+     }
 
     // Récupère de nombre de coeurs sur le processeur
     public int getHeartsProcessor()
@@ -149,5 +164,86 @@ class Noeud
         var nbHearts = Environment.ProcessorCount;
         return nbHearts;
     }
+    public void CreateThreads(List<AdnLine> petiteListeAdn)
+    {
+        Thread th = new Thread(() => { Map(petiteListeAdn); });
+        lstThreads.Add(th);
+    }
 
+    private void Map(List<AdnLine> petiteListeAdn )
+    {
+        int paires = 0;
+        int baseA = 0;
+        int baseT = 0;
+        int baseG = 0;
+        int baseC = 0;
+        int baseInconnue = 0;
+
+        foreach (var item in petiteListeAdn)
+        {
+            paires++;
+
+            // occurance des bases
+            if (item.genotype.Contains("A"))
+            {
+                baseA++;
+            }
+
+            if (item.genotype.Contains("T"))
+            {
+                baseT++;
+            }
+
+            if (item.genotype.Contains("G"))
+            {
+                baseG++;
+            }
+
+            if (item.genotype.Contains("C"))
+            {
+                baseC++;
+            }
+            // occurence des bases inconnues
+            if (item.genotype.Contains("-"))
+            {
+                baseInconnue++;
+            }
+        }
+
+        Result r = new Result();
+        r.aNumber = baseA;
+        r.cNumber = baseC;
+        r.tNumber = baseT;
+        r.gNumber = baseG;
+        r.unknownNumber = baseInconnue;
+        res.Add(r);
+
+        
+    }
+
+    private void Reduce()
+    {
+        Result r = new Result();
+        foreach (var item in res)
+        {
+            r.aNumber += item.aNumber;
+            r.cNumber += item.cNumber;
+            r.tNumber += item.tNumber;
+            r.gNumber += item.gNumber;
+            r.unknownNumber += item.unknownNumber;
+        }
+        Result = r;
+    }
+  
+    public static List<List<T>> splitList<T>(List<T> locations, int nSize = 30)
+    {
+        var list = new List<List<T>>();
+
+        for (int i = 0; i < locations.Count; i += nSize)
+        {
+            list.Add(locations.GetRange(i, Math.Min(nSize, locations.Count - i)));
+        }
+
+        return list;
+    }
 }

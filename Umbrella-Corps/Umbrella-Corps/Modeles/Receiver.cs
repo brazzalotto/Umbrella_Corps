@@ -133,7 +133,13 @@ public class Receiver
         
         Application.Current.Dispatcher.BeginInvoke((Action)(() =>
         {
-            Server.fenetre.logs.Text+=("\n code  " + msg.cNumber);
+            Server.fenetre.logs.Text += ("Data received from node : " + this.ID + "  " + DateTime.Now.ToString("HH:mm:ss tt") 
+            + "  A count" + msg.aNumber
+            + "  C count" + msg.cNumber
+            + "  T count" + msg.tNumber
+            + "  G count" + msg.gNumber
+            + "  Unknown count" + msg.unknownNumber
+            + "\n");
         }), DispatcherPriority.Normal, null);
         if (msg !=null)
         {
@@ -141,5 +147,7 @@ public class Receiver
         }
       
     }
+
+
 }
 
